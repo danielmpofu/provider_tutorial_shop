@@ -66,14 +66,21 @@ class ShopProvider extends ChangeNotifier {
 
   void fetchProducts() async {
     _isLoadingProducts = true;
-    final response = await http.get(Uri.parse(_productsUrl));
-    if (response.statusCode == 200) {
-      Iterable l = json.decode(response.body);
-      _products =  List<Product>.from(l.map((product) => Product.fromJson(product)));
-      notifyListeners();
-    } else {
-      throw Exception('Failed to load json');
+    print("getting products");
+    try {
+      final response = await http.get(Uri.parse(_productsUrl));
+      if (response.statusCode == 200) {
+        Iterable l = json.decode(response.body);
+        _products =
+            List<Product>.from(l.map((product) => Product.fromJson(product)));
+        _isLoadingProducts = false;
+        notifyListeners();
+      } else {
+        _isLoadingProducts = false;
+        throw Exception('Failed to load json');
+      }
+    } catch (e) {
+      print(e.toString());
     }
-    _isLoadingProducts = false;
   }
 }

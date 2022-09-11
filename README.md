@@ -1,6 +1,7 @@
-# provider_tutorial_shop
 
-A whole provider shop
+#Provider Shop
+
+This is nothing but just a demo of how we can make an ecommerce shop using flutter and the design pattern Provider
 
 ## Getting Started
 

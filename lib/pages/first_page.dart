@@ -20,8 +20,9 @@ class _FirstPageState extends State<FirstPage> {
     return Consumer<ShopProvider>(builder: (context, shopProvider, child) {
       return Scaffold(
         appBar: AppBar(
-          title: const Text("Provider Shop"),
+          title:  Text("Provider Shop"),
           actions: [
+            !shopProvider.isLoadingProducts?
             Stack(
               children: <Widget>[
                 IconButton(
@@ -56,7 +57,14 @@ class _FirstPageState extends State<FirstPage> {
                   ),
                 )
               ],
-            ),
+            ):
+            Transform.scale(
+              scale: 0.4,
+              child: const CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            )
+
           ],
         ),
         body: ProductsGridView(
