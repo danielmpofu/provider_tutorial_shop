@@ -9,9 +9,6 @@ class DataClass with ChangeNotifier {
 
   int _count = 0;
 
-  // final List<Product> _products = [];
-
-//https://fakestoreapi.com/products
   int get getCount => _count;
 
   void incrementX() {

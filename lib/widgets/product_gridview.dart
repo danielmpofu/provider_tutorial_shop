@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_tutorial_shop/model/Product.dart';
 import 'package:provider_tutorial_shop/util/data_class.dart';
@@ -13,13 +14,12 @@ class ProductsGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var shopActions = Provider.of<ShopProvider>(context, listen: false);
-    return GridView.builder(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: isCart ? 0.87 : 1,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10),
+
+    return MasonryGridView.count(
+        crossAxisCount: 2,
         itemCount: products.length,
+        shrinkWrap: true,
+        physics: const ScrollPhysics(),
         itemBuilder: (BuildContext ctx, index) {
           return ProductGridItem(product: products[index], isCart: isCart);
         });
