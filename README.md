@@ -1,7 +1,22 @@
 
+![Application welcome page](https://github.com/danielmpofu/provider_tutorial_shop/blob/master/app_landing_page_spash_image.png)
+
 #Provider Shop
 
-This is nothing but just a demo of how we can make an ecommerce shop using flutter and the design pattern Provider
+This is nothing but just a demo of how we can make an ecommerce shop using flutter and the design pattern Provider.
+
+If you are in a hurry to spin up an ecommerce app, you can clone this code and then you customize it 
+the way you want and you'll get a nice  and simple app to maintain
+
+And this is the basic app flow chart:
+
+```mermaid
+graph LR
+A[Product grid] -- press item --> B((Product details))
+A --> C(Items in cart)
+B --> D{Cart}
+C --> D
+```
 
 ## Getting Started
 
